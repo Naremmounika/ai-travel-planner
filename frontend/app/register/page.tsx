@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import API from "../../src/utils/api";
+import { useRouter } from "next/dist/client/components/navigation";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -58,7 +60,14 @@ export default function RegisterPage() {
         >
           Register
         </button>
+         <button
+          onClick={() => router.push("/login")}
+          className="text-blue-500 mt-4"
+        >
+          Already have an account? Login
+      </button>
       </div>
+     
     </div>
   );
 }

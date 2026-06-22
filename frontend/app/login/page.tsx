@@ -55,7 +55,14 @@ export default function LoginPage() {
         >
           Login
         </button>
+        <button
+        onClick={() => router.push("/register")}
+        className="text-blue-500 mt-4"
+      >
+        Don't have an account? Register
+      </button>
       </div>
+      
     </div>
   );
 }
