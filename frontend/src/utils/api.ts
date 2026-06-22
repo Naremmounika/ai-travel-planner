@@ -1,9 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL:
-    process.env.NEXT_PUBLIC_API_URL ||
-    "https://ai-travel-planner-wvyv.onrender.com",
+  baseURL: "https://ai-travel-planner-wvyv.onrender.com",
 });
 
 API.interceptors.request.use((config) => {
