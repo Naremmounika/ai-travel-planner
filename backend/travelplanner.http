@@ -1,0 +1,86 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Mounika",
+  "email": "mounika@gmail.com",
+  "password": "123456"
+}
+###
+
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "mounika@gmail.com",
+  "password": "123456"
+}
+###
+GET http://localhost:5000/api/trips/test
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMzdkN2MzNTBkNzRiMzM0NjY0NDBjZSIsImlhdCI6MTc4MjEwOTQwMywiZXhwIjoxNzgyNzE0MjAzfQ.U4kl1eWH5_Zrzu9WJg-6QjidCdeyTyfPG9kVszmVoDs
+###
+POST http://localhost:5000/api/trips/generate
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMzdkN2MzNTBkNzRiMzM0NjY0NDBjZSIsImlhdCI6MTc4MjA0NTE3NSwiZXhwIjoxNzgyNjQ5OTc1fQ.7cNUDKCe_UG8gUf-l7pGvD2R0nQ-DpN6FD_w623dP18
+Content-Type: application/json
+
+{
+  "destination": "Tokyo",
+  "durationDays": 3,
+  "budgetTier": "Medium",
+  "interests": ["Food", "Culture", "Shopping"]
+}
+###
+GET http://localhost:5000/api/trips
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMzdkN2MzNTBkNzRiMzM0NjY0NDBjZSIsImlhdCI6MTc4MjA0NTE3NSwiZXhwIjoxNzgyNjQ5OTc1fQ.7cNUDKCe_UG8gUf-l7pGvD2R0nQ-DpN6FD_w623dP18
+###
+PUT http://localhost:5000/api/trips/6a38c8a8245492a07dff34b0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMzdkN2MzNTBkNzRiMzM0NjY0NDBjZSIsImlhdCI6MTc4MjA0NTE3NSwiZXhwIjoxNzgyNjQ5OTc1fQ.7cNUDKCe_UG8gUf-l7pGvD2R0nQ-DpN6FD_w623dP18
+Content-Type: application/json
+
+{
+  "itinerary": [
+    {
+      "dayNumber": 1,
+      "activities": [
+        {
+          "title": "New Activity",
+          "description": "Added manually",
+          "estimatedCostUSD": 10,
+          "timeOfDay": "Morning"
+        }
+      ]
+    }
+  ]
+}
+###
+POST http://localhost:5000/api/trips/6a38c8a8245492a07dff34b0/regenerate-day
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMzdkN2MzNTBkNzRiMzM0NjY0NDBjZSIsImlhdCI6MTc4MjA0NTE3NSwiZXhwIjoxNzgyNjQ5OTc1fQ.7cNUDKCe_UG8gUf-l7pGvD2R0nQ-DpN6FD_w623dP18
+Content-Type: application/json
+
+{
+  "dayNumber": 2,
+  "userPrompt": "More outdoor activities and parks"
+}
+###
+POST http://localhost:5000/api/trips/generate
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMzdkN2MzNTBkNzRiMzM0NjY0NDBjZSIsImlhdCI6MTc4MjA0NTE3NSwiZXhwIjoxNzgyNjQ5OTc1fQ.7cNUDKCe_UG8gUf-l7pGvD2R0nQ-DpN6FD_w623dP18
+Content-Type: application/json  
+
+{
+  "destination": "New York",
+  "durationDays": 5,
+  "budgetTier": "High",
+  "interests": ["Museums", "Theater", "Fine Dining"]
+}
+###
+GET http://localhost:5000/api/trips
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMzdkN2MzNTBkNzRiMzM0NjY0NDBjZSIsImlhdCI6MTc4MjA0NTE3NSwiZXhwIjoxNzgyNjQ5OTc1fQ.7cNUDKCe_UG8gUf-l7pGvD2R0nQ-DpN6FD_w623dP18
+###
+POST http://localhost:5000/api/trips/6a38c8a8245492a07dff34b0/regenerate-day
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMzdkN2MzNTBkNzRiMzM0NjY0NDBjZSIsImlhdCI6MTc4MjA0NTE3NSwiZXhwIjoxNzgyNjQ5OTc1fQ.7cNUDKCe_UG8gUf-l7pGvD2R0nQ-DpN6FD_w623dP18
+Content-Type: application/json
+
+{
+  "dayNumber": 1,
+  "userPrompt": "More outdoor activities and parks"
+}
